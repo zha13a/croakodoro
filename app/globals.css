@@ -7,13 +7,46 @@
   --background-hex: #232931;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-hex: #eeeeee;
-  }
-} */
-
 body {
   color: var(--foreground-hex);
   background-color: var(--background-hex);
+}
+
+@layer components {
+  .sidebar-icon {
+    @apply flex items-center relative rounded-xl cursor-pointer 
+      min-w-[56px] min-h-[46px] transition-all overflow-hidden;
+  }
+
+  .sidebar-link {
+    @apply flex flex-row;
+  }
+  
+  .sidebar-icon:hover {
+    @apply bg-slate-500;
+  }
+
+  .sidebar-icon_active {
+    @apply bg-white cursor-default;
+  }
+
+  .sidebar-icon_active:hover {
+    @apply bg-white;
+  }
+
+  .sidebar-icon > a {
+    @apply ml-[15px] text-white;
+  }
+
+  .sidebar-icon_active > a {
+    @apply text-black;
+  }
+
+  .sidebar-icon > a > svg {
+    @apply mr-[15px];
+  }
+
+  .sidebar-icon_active > a > svg > path {
+    @apply stroke-sidebar-gray;
+  }
 }
